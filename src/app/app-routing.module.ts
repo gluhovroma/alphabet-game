@@ -4,7 +4,9 @@ import {StartPageComponent } from './start-page/start-page.component';
 import { ChallengePageComponent } from './challenge-page/challenge-page.component';
 const routes: Routes = [
   { path: '', component: StartPageComponent},
-  { path: 'challenge', component: ChallengePageComponent}
+  { path: 'challenge/:letter', component: ChallengePageComponent},
+  { path: '',   redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
