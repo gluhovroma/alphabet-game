@@ -7,7 +7,8 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { ChallengePageComponent } from './challenge-page/challenge-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './material-module';
-
+import { ChallengeService } from './services/challengeService';
+import { VacabularyService } from './services/vacabularyService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,10 @@ import {DemoMaterialModule} from './material-module';
     BrowserAnimationsModule,
     DemoMaterialModule,
   ],
-  providers: [],
+  providers: [
+    VacabularyService,
+    ChallengeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

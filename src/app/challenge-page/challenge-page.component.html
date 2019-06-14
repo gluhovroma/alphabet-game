@@ -1,3 +1,14 @@
-<p>
-  challenge-page works!
-</p>
+
+  Challenge!
+  {{letter}}
+
+  <div *ngFor="let item of word; index as i">
+    <button (click)="makeChoise(i)"> {{item}}</button>    
+  </div>
+
+  <div>
+      {{success}}
+    </div>
+<div>
+  {{failed}}
+</div>

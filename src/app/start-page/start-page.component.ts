@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VacabularyService } from '../services/vacabularyService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-start-page',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public vacabularyService: VacabularyService, private router: Router) {
+
+   }
 
   ngOnInit() {
+
+  }
+
+  newChallenge() {
+    const letter = this.vacabularyService.getRandomLetter();
+    this.router.navigateByUrl(`challenge/${letter}`);
+
   }
 
 }
