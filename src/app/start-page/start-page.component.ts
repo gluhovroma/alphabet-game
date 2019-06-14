@@ -20,7 +20,6 @@ export class StartPageComponent implements OnInit {
   newChallenge() {
     const letter = this.vacabularyService.getRandomLetter();
     this.router.navigateByUrl(`challenge/${letter}`);
-
   }
 
 }

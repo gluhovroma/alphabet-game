@@ -2,27 +2,27 @@ import {Injectable} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import {VacabularyService} from './vacabularyService';
 
+export enum ChallengeStatus {
+    new,
+    failed,
+    success
+}
+
 @Injectable()
 export class ChallengeService {
     public letter: BehaviorSubject<string> = new BehaviorSubject<string>("");
     public word: BehaviorSubject<string> = new BehaviorSubject<string>("");
-    public success: BehaviorSubject<string> = new BehaviorSubject<string>("");
-    public failed: BehaviorSubject<string> = new BehaviorSubject<string>("");
+    public status: BehaviorSubject<ChallengeStatus> = new BehaviorSubject<ChallengeStatus>(ChallengeStatus.new);
 
     constructor(private vacabularyService: VacabularyService) {
 
     }
 
     public newChallenge(letter: string): void {
-        this.success.next("");
-        this.failed.next("");
+        this.status.next(ChallengeStatus.new);
         this.setLetter(letter);
-        const word = this.vacabularyService.getRandomWord(letter)
+        const word = this.vacabularyService.getRandomWord(letter);
         this.setWord(word);
-    }
-
-    public getImgPath(letter: string) {
-        return `${letter}.png`
     }
 
     private setWord(word: string): void {       
@@ -33,15 +33,14 @@ export class ChallengeService {
         this.letter.next(letter);
     }
 
-    public makeChoice(index: number, letter: string) {
-        const word= this.word.getValue();
-        if (word[index] === letter) {
-            this.success.next("Success")
-            console.log("Success");
-        } else {
-            this.success.next("Failed")
-            console.log("SucFailedcess");
-        }
+    public makeChoice(index: number, letter: string): void {
+        
+        if (this.status.getValue() !== ChallengeStatus.new) {
+            return
+        };  
 
+        const word= this.word.getValue();
+        const result = word[index] === letter ? ChallengeStatus.success : ChallengeStatus.failed;
+        this.status.next(result)        
     }
 }

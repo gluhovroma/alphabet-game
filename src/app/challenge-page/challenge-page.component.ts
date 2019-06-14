@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VacabularyService } from '../services/vacabularyService';
-import { ChallengeService } from '../services/challengeService';
+import { ChallengeService, ChallengeStatus } from '../services/challengeService';
 import { Router, ActivatedRoute  } from '@angular/router';
 @Component({
   selector: 'app-challenge-page',
@@ -10,17 +10,25 @@ import { Router, ActivatedRoute  } from '@angular/router';
 export class ChallengePageComponent implements OnInit {
   public letter: string;
   public  word: string[];
-  public success: string;
-  public failed: string;
+  public challengeStatuses = ChallengeStatus;
+  public challengeStatus: ChallengeStatus
+  public alphabet: string[];
   constructor(
-    public vacabularyService: VacabularyService, 
+    public vacabularyService: VacabularyService,
     public challengeService: ChallengeService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.challengeService.newChallenge(this.route.snapshot.paramMap.get('letter'));
+
+    this.alphabet = [...this.vacabularyService.getAlphabet()];
+
+    //this.challengeService.newChallenge(this.route.snapshot.paramMap.get('letter'));
+
+    this.route.params.subscribe( params =>
+      this.challengeService.newChallenge(params['letter'])
+    )
 
     this.challengeService.word.subscribe(word => {
       this.word = word.split("");
@@ -31,23 +39,28 @@ export class ChallengePageComponent implements OnInit {
       this.letter = letter;
     })
 
-    this.challengeService.success.subscribe(success => {
-      this.success = success;
+    this.challengeService.status.subscribe(status => {
+      this.challengeStatus = status;
+      console.log(this.challengeStatus);
+      console.log(this.challengeStatuses.new)
     })
 
-    this.challengeService.failed.subscribe(failed => {
-      this.failed = failed;
-    })
 
-    
 
- 
 
     //console.log(this.id);
   }
 
   makeChoise(i: number){
-    this.challengeService.makeChoice(i, this.letter)
+    this.challengeService.makeChoice(i, this.letter);
+  }
+  onClickNewWord(letter: string) {
+
+    this.router.navigateByUrl(`challenge/${letter}`);
+  }
+
+  startNewChallenge() {
+
   }
 
 }

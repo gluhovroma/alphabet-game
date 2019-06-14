@@ -1,14 +1,66 @@
-
+<!--
   Challenge!
   {{letter}}
-
   <div *ngFor="let item of word; index as i">
-    <button (click)="makeChoise(i)"> {{item}}</button>    
+    <button (click)="makeChoise(i)"> {{item}}</button>
   </div>
-
   <div>
-      {{success}}
+      <div *ngIf="challengeStatus === challengeStatuses.success">Success</div>
+      <div *ngIf="challengeStatus === challengeStatuses.failed">Failed</div>
     </div>
-<div>
-  {{failed}}
-</div>
+ -->
+
+ <div fxLayout="row" fxFlex="60" fxFlexOffset="20" fxLayoutAlign="center center" class="login-main">
+
+        <div fxLayout="column" fxLayoutGap="20px" fxFill>
+            <div class="letterPresenter" fxLayout="row" fxFlex fxLayoutAlign="center center">
+              <div class="letterPresenter__item" fxFlex="50" fxLayoutAlign="center center">
+                  <h1 class="selectedWord mat-display-1">{{letter.toLocaleUpperCase() + letter.toLocaleLowerCase()}}</h1>
+                </div>
+              <div class="letterPresenter__item" fxFlex="50" fxFlex fxLayoutAlign="flex-start center">
+                      <img class="letterImage" src="assets/alphabet-images/rus/а.png" alt="image">
+              </div>
+            </div>
+            <div fxLayout  fxFlex fxLayoutAlign="center center">
+                <div class="letterContainer" fxFlex="80" fxLayoutAlign="center center">
+                    <mat-card fxFlex >
+                        <div fxFlex="100" fxLayout="column" fxFill>
+                            <div fxFlex fxLayoutAlign="center center">
+                                <p> Найдите (кликните) букву  <sup class="selectedWord">{{letter}}</sup> в слове:</p>
+                            </div>
+                            <div fxFlex fxLayoutAlign="center center">
+                                <button [disabled]="challengeStatus != challengeStatuses.new" (click)="makeChoise(i)" *ngFor="let item of word; index as i" mat-button class="wordButton">
+                                   {{item}}
+                                </button>
+                                <div class="resultContainer">
+                                    <div *ngIf="challengeStatus === challengeStatuses.success" class="challengeResult challengeResult--success">
+                                        Success
+                                    </div>
+                                    <div *ngIf="challengeStatus === challengeStatuses.failed" class="challengeResult challengeResult--failed">
+                                        Failed
+                                    </div>
+                                </div>
+
+                            </div>
+                          </div>
+                    </mat-card>
+                </div>
+
+            </div>
+            <div fxLayout fxFlex fxLayoutAlign="center center">
+                <div class="letterContainer" fxFlex="80" fxLayoutAlign="center center">
+                    <mat-card >
+                      <div fxFlex="100" fxLayout="row wrap">
+                          <div *ngFor="let item of alphabet" fxFlex="10" fxLayoutAlign="center center">
+                            <button (click)="onClickNewWord(item)" [ngClass]="{'selectedWord': item === letter}" mat-button class="wordButton">
+                              {{item.toLocaleUpperCase() + item.toLocaleLowerCase()}}
+                            </button>
+                          </div>
+                        </div>
+
+                  </mat-card>
+                </div>
+              </div>
+        </div>
+
+    </div>
