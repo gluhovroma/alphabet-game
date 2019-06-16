@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VacabularyService } from '../services/vacabularyService';
+import { VacabularyService } from '../../services/vacabularyService/vacabularyService';
 import { Router } from '@angular/router';
 
 @Component({

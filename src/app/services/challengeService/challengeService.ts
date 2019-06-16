@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import {VacabularyService} from './vacabularyService';
+import {VacabularyService} from '../vacabularyService/vacabularyService';
 
 export enum ChallengeStatus {
     new,
@@ -10,10 +10,10 @@ export enum ChallengeStatus {
 
 @Injectable()
 export class ChallengeService {
-    public letter: BehaviorSubject<string> = new BehaviorSubject<string>("a");
+
+    public letter: BehaviorSubject<string> = new BehaviorSubject<string>("");
     public word: BehaviorSubject<string> = new BehaviorSubject<string>("");
     public status: BehaviorSubject<ChallengeStatus> = new BehaviorSubject<ChallengeStatus>(ChallengeStatus.new);
-    public t = 'a';
     constructor(private vacabularyService: VacabularyService) {
 
     }
@@ -25,22 +25,21 @@ export class ChallengeService {
         this.setWord(word);
     }
 
-    private setWord(word: string): void {
+    public setWord(word: string): void {
         this.word.next(word);
     }
 
-    private setLetter(letter: string): void {
+    public setLetter(letter: string): void {
         this.letter.next(letter);
     }
 
     public makeChoice(index: number, letter: string): void {
 
         if (this.status.getValue() !== ChallengeStatus.new) {
-            return
-        };
-
-        const word= this.word.getValue();
+            return;
+        }
+        const word = this.word.getValue();
         const result = word[index] === letter ? ChallengeStatus.success : ChallengeStatus.failed;
-        this.status.next(result)
+        this.status.next(result);
     }
 }

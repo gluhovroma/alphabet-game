@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { VacabularyService } from '../services/vacabularyService';
-import { ChallengeService, ChallengeStatus } from '../services/challengeService';
+import { ChallengeService, ChallengeStatus } from '../../services/challengeService/challengeService';
+import { VacabularyService } from '../../services/vacabularyService/vacabularyService';
 import { Router, ActivatedRoute, Params  } from '@angular/router';
 @Component({
   selector: 'app-challenge-page',

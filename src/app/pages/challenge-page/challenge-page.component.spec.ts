@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChallengePageComponent } from './challenge-page.component';
-import { VacabularyService } from '../services/vacabularyService';
-import { ChallengeService } from '../services/challengeService';
+import { VacabularyService } from '../../services/vacabularyService/vacabularyService';
+import { ChallengeService } from '../../services/challengeService/challengeService';
 import { RouterTestingModule } from '@angular/router/testing';
-import {DemoMaterialModule} from '../material-module';
-
+import {DemoMaterialModule} from '../../material-module';
+import { VacabularyStorageService } from '../../services/vacabularyStorageService/vacabularyStorageService';
+import { StorageServiceModule } from 'ngx-webstorage-service';
 describe('ChallengePageComponent', () => {
   let component: ChallengePageComponent;
   let fixture: ComponentFixture<ChallengePageComponent>;
@@ -13,10 +14,11 @@ describe('ChallengePageComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ChallengePageComponent ],
-      imports:[RouterTestingModule, FlexLayoutModule,DemoMaterialModule],
+      imports:[RouterTestingModule, FlexLayoutModule, DemoMaterialModule, StorageServiceModule],
       providers: [
         VacabularyService,
-        ChallengeService
+        ChallengeService,
+        VacabularyStorageService
       ],
     })
     .compileComponents();
