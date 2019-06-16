@@ -1,63 +1,12 @@
-.login-main{
-
-
-    margin-top: 10%;
-
-
-    }
-
-
-    mat-card{
-
-
-    min-width: 40%;
-
-
-    }
-.selectedWord {
-  color:red !important;
-  font-size: 24px;
+.login-main {
+  margin-top: 10%;
 }
-.letterContainer {
+mat-card{
+  min-width: 40%;
+}
 
-}
-.letterPresenter {
-
-}
-.letterPresenter__item {
-  height: 200px;
-}
-.letterImage {
-
-  height: 100%;
-  object-fit: contain;
-}
 .resultContainer {
   min-width: 55px;
 }
-.challengeResult {
-  padding: 4px;
-  border-radius: 4px;
-  font-size: 12px;
-  margin-top: -20px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-.challengeResult--success {
-  background-color: green;
-  color:white
-}
-.challengeResult--failed {
-  background-color: red;
-  color:white;
-  font-size: 12px;
-}
-.wordButton {
-    border-radius: 50%;
-    min-height: 32px !important;
-    min-width: 32px !important;
-    font-size: 24px !important;
-    line-height: 32px;
-    padding: 0px;
-}
+
+

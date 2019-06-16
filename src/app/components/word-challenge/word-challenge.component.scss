@@ -1,0 +1,19 @@
+
+.challengeResult {
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-top: -20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.challengeResult--success {
+  background-color: green;
+  color:white
+}
+.challengeResult--failed {
+  background-color: red;
+  color:white;
+  font-size: 12px;
+}

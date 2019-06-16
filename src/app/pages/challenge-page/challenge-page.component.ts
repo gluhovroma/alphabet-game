@@ -13,7 +13,7 @@ export class ChallengePageComponent implements OnInit {
   public challengeStatuses = ChallengeStatus;
   public challengeStatus: ChallengeStatus;
   public alphabet: string[];
-  public selectedIndex: number;
+
   constructor(
     public vacabularyService: VacabularyService,
     public challengeService: ChallengeService,
@@ -43,11 +43,9 @@ export class ChallengePageComponent implements OnInit {
     });
   }
   makeChoise(i: number) {
-    this.selectedIndex = i;
     this.challengeService.makeChoice(i, this.letter);
   }
-  onClickNewWord(letter: string) {
-    this.selectedIndex = null;
+  newChallenge(letter: string) {
     this.router.navigateByUrl(`challenge/${letter}`);
   }
 }

@@ -4,7 +4,7 @@ import { StartPageComponent } from './start-page.component';
 import { VacabularyService } from '../../services/vacabularyService/vacabularyService';
 import { ChallengeService } from '../../services/challengeService/challengeService';
 import { RouterTestingModule } from '@angular/router/testing';
-import { VacabularyStorageService } from '../../services/vacabularyStorageService/vacabularyStorageService';
+import { VacabularyStorageService } from '../../services/vacabularyService/vacabularyService';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 
 describe('StartPageComponent', () => {

@@ -1,0 +1,31 @@
+<div fxLayout  fxFlex fxLayoutAlign="center center">
+  <div fxFlex="80" fxLayoutAlign="center center">
+      <mat-card fxFlex >
+          <div fxFlex="100" fxLayout="column" fxFill>
+              <div fxFlex fxLayoutAlign="center center">
+                  <p> Найдите (кликните) букву  <sup class="selectedWord">{{letter}}</sup> в слове:</p>
+              </div>
+              <div fxFlex fxLayoutAlign="center center">
+                  <button
+                    [disabled]="challengeStatus != challengeStatuses.new"
+                    (click)="makeChoice(i)"
+                    *ngFor="let item of word; index as i"
+                    mat-button
+                    class="matButtonWord"
+                    [ngClass]="{selectedWord: selectedIndex === i && challengeStatus === challengeStatuses.success}">
+                     {{item}}
+                  </button>
+                  <div class="resultContainer">
+                      <div *ngIf="challengeStatus === challengeStatuses.success" class="challengeResult challengeResult--success">
+                          Success
+                      </div>
+                      <div *ngIf="challengeStatus === challengeStatuses.failed" class="challengeResult challengeResult--failed">
+                          Failed
+                      </div>
+                  </div>
+
+              </div>
+            </div>
+      </mat-card>
+  </div>
+</div>

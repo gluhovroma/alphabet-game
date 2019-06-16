@@ -5,7 +5,7 @@ import { VacabularyService } from '../../services/vacabularyService/vacabularySe
 import { ChallengeService } from '../../services/challengeService/challengeService';
 import { RouterTestingModule } from '@angular/router/testing';
 import {DemoMaterialModule} from '../../material-module';
-import { VacabularyStorageService } from '../../services/vacabularyStorageService/vacabularyStorageService';
+import { VacabularyStorageService } from '../../services/vacabularyService/vacabularyService';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 describe('ChallengePageComponent', () => {
   let component: ChallengePageComponent;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-letter-presenter',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./letter-presenter.component.scss']
 })
 export class LetterPresenterComponent implements OnInit {
-
+  @Input() letter: string;
+  @Input() language: string;
   constructor() { }
 
   ngOnInit() {
+    console.log(this.letter);
   }
 
 }

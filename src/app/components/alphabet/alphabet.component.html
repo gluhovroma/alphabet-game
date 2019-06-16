@@ -1,0 +1,14 @@
+<div fxLayout fxFlex fxLayoutAlign="center center">
+  <div class="letterContainer" fxFlex="80" fxLayoutAlign="center center">
+      <mat-card >
+        <div fxFlex="100" fxLayout="row wrap">
+            <div *ngFor="let item of alphabet" fxFlex="10" fxLayoutAlign="center center">
+              <button (click)="clickLetter(item)" [ngClass]="{'selectedWord': item === letter}" mat-button class="matButtonWord">
+                {{item.toLocaleUpperCase() + item.toLocaleLowerCase()}}
+              </button>
+            </div>
+          </div>
+
+    </mat-card>
+  </div>
+</div>

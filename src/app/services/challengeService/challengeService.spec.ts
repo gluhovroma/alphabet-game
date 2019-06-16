@@ -1,7 +1,7 @@
 import { async, TestBed } from '@angular/core/testing';
 
 import { VacabularyService } from '../vacabularyService/vacabularyService';
-import { VacabularyStorageService } from '../vacabularyStorageService/vacabularyStorageService';
+import { VacabularyStorageService } from '../vacabularyService/vacabularyService';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 import { ChallengeService, ChallengeStatus } from '../challengeService/challengeService';
 
