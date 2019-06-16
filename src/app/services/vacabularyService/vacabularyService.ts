@@ -16,7 +16,33 @@ export const alphabets: VacabularyRecords = {
 
 export const vocabularies: VacabularyRecords = {
   [Laguages.ru]: ["мама","папа"],
-  [Laguages.eng]: ['mother', "father", "mom", "om", "main"]
+  [Laguages.eng]: ['apple',
+  'bird',
+  'car',
+  'dinosaur',
+  'elephant',
+  'fish',
+  'mother',
+  'gift',
+  'house',
+  'icecream',
+  'jam',
+  'key',
+  'lemon',
+  'mushroom',
+  'notebook',
+  'owl',
+  'palm',
+  'queen',
+  'rainbow',
+  'sunshine',
+  'trees',
+  'umbrella',
+  'violin',
+  'watermelon',
+  'xylophone',
+  'yacht',
+  'zebra']
 };
 const defaultLanguage = Laguages.eng;
 
