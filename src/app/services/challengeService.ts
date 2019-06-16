@@ -10,10 +10,10 @@ export enum ChallengeStatus {
 
 @Injectable()
 export class ChallengeService {
-    public letter: BehaviorSubject<string> = new BehaviorSubject<string>("");
+    public letter: BehaviorSubject<string> = new BehaviorSubject<string>("a");
     public word: BehaviorSubject<string> = new BehaviorSubject<string>("");
     public status: BehaviorSubject<ChallengeStatus> = new BehaviorSubject<ChallengeStatus>(ChallengeStatus.new);
-
+    public t = 'a';
     constructor(private vacabularyService: VacabularyService) {
 
     }
@@ -25,7 +25,7 @@ export class ChallengeService {
         this.setWord(word);
     }
 
-    private setWord(word: string): void {       
+    private setWord(word: string): void {
         this.word.next(word);
     }
 
@@ -34,13 +34,13 @@ export class ChallengeService {
     }
 
     public makeChoice(index: number, letter: string): void {
-        
+
         if (this.status.getValue() !== ChallengeStatus.new) {
             return
-        };  
+        };
 
         const word= this.word.getValue();
         const result = word[index] === letter ? ChallengeStatus.success : ChallengeStatus.failed;
-        this.status.next(result)        
+        this.status.next(result)
     }
 }

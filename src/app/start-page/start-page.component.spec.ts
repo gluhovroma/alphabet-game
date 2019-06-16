@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StartPageComponent } from './start-page.component';
+import { VacabularyService } from '../services/vacabularyService';
+import { ChallengeService } from '../services/challengeService';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('StartPageComponent', () => {
   let component: StartPageComponent;
@@ -8,7 +11,12 @@ describe('StartPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StartPageComponent ]
+      declarations: [ StartPageComponent ],
+      imports: [RouterTestingModule],
+      providers: [
+        VacabularyService,
+        ChallengeService
+      ],
     })
     .compileComponents();
   }));

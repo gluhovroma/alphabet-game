@@ -1,17 +1,17 @@
 import {Injectable, IterableDiffers} from '@angular/core';
 
-enum Laguages {
+export enum Laguages {
     ru = 'ru',
     eng = 'eng'
 }
 
-const alphabets = {
+export const alphabets = {
     [Laguages.ru]: 'abcdefghijklmnopqrstuvwxyz'.split(''),
     [Laguages.eng]: 'abcdefghijklmnopqrstuvwxyz'.split('')
 }
 
 
-const vocabularies = {
+export const vocabularies = {
     [Laguages.ru]: ["мама","папа"],
     [Laguages.eng]: ['mother', "father", "mom", "om", "main"]
 }
@@ -20,9 +20,8 @@ const defaultLanguage = Laguages.eng;
 
 @Injectable()
 export class VacabularyService {
-    
     public language: Laguages;
-    public alphabets = alphabets;  
+    public alphabets = alphabets;
     public vocabularies = vocabularies;
     constructor() {
         this.language = defaultLanguage;
@@ -33,7 +32,7 @@ export class VacabularyService {
     }
 
     getRandomLetter(): string {
-        const alphabet = this.alphabets[this.language];        
+        const alphabet = this.alphabets[this.language];
         return alphabet[Math.floor(Math.random() * alphabet.length)];
     }
 
@@ -43,5 +42,5 @@ export class VacabularyService {
         const matchedWords = vocabulary.filter(item => item.match(regexp))
         return matchedWords[Math.floor(Math.random() * matchedWords.length)];
     }
-  
+
 }

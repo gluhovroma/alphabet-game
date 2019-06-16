@@ -10,15 +10,15 @@
     </div>
  -->
 
- <div fxLayout="row" fxFlex="60" fxFlexOffset="20" fxLayoutAlign="center center" class="login-main">
+ <div fxLayout="row"  [fxFlex.lg]="50"  [fxFlex.md]="50"  [fxFlex.xs]="100" [fxFlexOffset.lg]="25" [fxFlexOffset.md]="25" [fxFlexOffset.xs]="0" fxLayoutAlign="center center" class="login-main">
 
         <div fxLayout="column" fxLayoutGap="20px" fxFill>
             <div class="letterPresenter" fxLayout="row" fxFlex fxLayoutAlign="center center">
               <div class="letterPresenter__item" fxFlex="50" fxLayoutAlign="center center">
-                  <h1 class="selectedWord mat-display-1">{{letter.toLocaleUpperCase() + letter.toLocaleLowerCase()}}</h1>
+                  <h1 *ngIf="letter" class="selectedWord mat-display-1">{{ letter.toLocaleUpperCase() + letter.toLocaleLowerCase()}}</h1>
                 </div>
               <div class="letterPresenter__item" fxFlex="50" fxFlex fxLayoutAlign="flex-start center">
-                      <img class="letterImage" src="assets/alphabet-images/rus/а.png" alt="image">
+                      <img class="letterImage" [src]="'assets/alphabet-images/'+vacabularyService.language+'/'+letter+'.png'" alt="image">
               </div>
             </div>
             <div fxLayout  fxFlex fxLayoutAlign="center center">
@@ -29,7 +29,13 @@
                                 <p> Найдите (кликните) букву  <sup class="selectedWord">{{letter}}</sup> в слове:</p>
                             </div>
                             <div fxFlex fxLayoutAlign="center center">
-                                <button [disabled]="challengeStatus != challengeStatuses.new" (click)="makeChoise(i)" *ngFor="let item of word; index as i" mat-button class="wordButton">
+                                <button
+                                  [disabled]="challengeStatus != challengeStatuses.new"
+                                  (click)="makeChoise(i)"
+                                  *ngFor="let item of word; index as i"
+                                  mat-button
+                                  class="wordButton"
+                                  [ngClass]="{selectedWord: selectedIndex === i && challengeStatus === challengeStatuses.success}">
                                    {{item}}
                                 </button>
                                 <div class="resultContainer">

@@ -20,7 +20,7 @@ import { VacabularyService } from './services/vacabularyService';
     AppRoutingModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
-    FlexLayoutModule 
+    FlexLayoutModule
   ],
   providers: [
     VacabularyService,
