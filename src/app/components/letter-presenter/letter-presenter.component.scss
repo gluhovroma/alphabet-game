@@ -1,13 +1,12 @@
 .letterPresenter {
-
-}
-.letterPresenter__item {
   height: 200px;
+  .word {
+    font-size: 6rem;
+  }
+  .image {
+    height: 200px;
+    object-fit: contain;
+  }
 }
-.mainWord {
-  font-size: 6rem;
-}
-.letterImage {
-  height: 100%;
-  object-fit: contain;
-}
+
+

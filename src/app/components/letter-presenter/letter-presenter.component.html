@@ -1,8 +1,8 @@
 <div class="letterPresenter" fxLayout="row" fxFlex fxLayoutAlign="center center">
-    <div class="letterPresenter__item" fxFlex="50" fxLayoutAlign="center center">
-      <h1 *ngIf="letter" class="mainWord selectedWord mat-display-1">{{ letter.toLocaleUpperCase() + letter.toLocaleLowerCase()}}</h1>
-    </div>
-    <div class="letterPresenter__item" fxFlex="50" fxFlex fxLayoutAlign="flex-start center">
-      <img class="letterImage" [src]="'assets/alphabet-images/'+ language +'/'+letter+'.png'" alt="image">
-    </div>
+  <div fxFlex="50" fxLayoutAlign="center center">
+    <h1 *ngIf="letter" class="word selectedWord mat-display-1">{{ letter.toLocaleUpperCase() + letter.toLocaleLowerCase()}}</h1>
   </div>
+  <div  fxFlex="50" fxFlex fxLayoutAlign="flex-start center">
+    <img class="image" [src]="'assets/alphabet-images/'+ language +'/'+letter+'.png'" alt="image">
+  </div>
+</div>

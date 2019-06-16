@@ -7,13 +7,14 @@
   align-items: center;
   justify-content: center;
   display: flex;
-}
-.challengeResult--success {
-  background-color: green;
-  color:white
-}
-.challengeResult--failed {
-  background-color: red;
-  color:white;
-  font-size: 12px;
+  min-width: 55px;
+  &--success {
+    background-color: green;
+    color:white
+  }
+  &--failed {
+    background-color: red;
+    color:white;
+    font-size: 12px;
+  }
 }

@@ -9,7 +9,7 @@ export class WordChallengeComponent implements OnInit {
   @Input() challengeStatus: ChallengeStatus;
   @Input() letter: string;
   @Input() word: string;
-  @Output() onMakeChoice = new EventEmitter<boolean>();
+  @Output() onMakeChoice = new EventEmitter<number>();
   public selectedIndex: number;
   challengeStatuses = ChallengeStatus;
 
@@ -19,8 +19,7 @@ export class WordChallengeComponent implements OnInit {
 
   }
 
-  public makeChoice(i) {
-    console.log(i);
+  public makeChoice(i: number) {
     this.selectedIndex = i;
     this.onMakeChoice.emit(i);
   }

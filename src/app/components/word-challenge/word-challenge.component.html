@@ -15,15 +15,12 @@
                     [ngClass]="{selectedWord: selectedIndex === i && challengeStatus === challengeStatuses.success}">
                      {{item}}
                   </button>
-                  <div class="resultContainer">
-                      <div *ngIf="challengeStatus === challengeStatuses.success" class="challengeResult challengeResult--success">
-                          Success
-                      </div>
-                      <div *ngIf="challengeStatus === challengeStatuses.failed" class="challengeResult challengeResult--failed">
-                          Failed
-                      </div>
+                  <div *ngIf="challengeStatus === challengeStatuses.success" class="challengeResult challengeResult--success">
+                    Success
                   </div>
-
+                  <div *ngIf="challengeStatus === challengeStatuses.failed" class="challengeResult challengeResult--failed">
+                     Failed
+                  </div>
               </div>
             </div>
       </mat-card>

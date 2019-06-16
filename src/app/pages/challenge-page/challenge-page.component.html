@@ -1,13 +1,35 @@
-<div fxLayout="row"  [fxFlex.lg]="50"  [fxFlex.md]="50"  [fxFlex.xs]="100" [fxFlexOffset.lg]="25" [fxFlexOffset.md]="25" [fxFlexOffset.xs]="0" fxLayoutAlign="center center" class="login-main">
-  <div fxLayout="column" fxLayoutGap="20px" fxFill>
-      <app-letter-presenter *ngIf="letter" [letter]="letter" [language]="vacabularyService.language"></app-letter-presenter>
-      <app-word-challenge
-        [challengeStatus]="challengeStatus"
-        [word]="word"
-        [letter]="letter"
-        (onMakeChoice)="makeChoise($event)"
-      >
-      </app-word-challenge>
-      <app-alphabet [alphabet]="alphabet" (onClickLetter)="newChallenge($event)"></app-alphabet>
+<div
+  fxLayout="row"
+  [fxFlex.lg]="50"
+  [fxFlex.md]="50"
+  [fxFlex.xs]="100"
+  [fxFlexOffset.lg]="25"
+  [fxFlexOffset.md]="25"
+  [fxFlexOffset.xs]="0"
+  fxLayoutAlign="center center"
+  class="main"
+>
+  <div
+    fxLayout="column"
+    fxLayoutGap="20px"
+    fxFill
+  >
+    <app-letter-presenter
+      *ngIf="letter"
+      [letter]="letter"
+      [language]="vacabularyService.language"
+    >
+  </app-letter-presenter>
+  <app-word-challenge
+    [challengeStatus]="challengeStatus"
+    [word]="word"
+    [letter]="letter"
+    (onMakeChoice)="makeChoise($event)"
+  >
+  </app-word-challenge>
+  <app-alphabet
+  [alphabet]="alphabet"
+  (onClickLetter)="newChallenge($event)">
+  </app-alphabet>
   </div>
 </div>
