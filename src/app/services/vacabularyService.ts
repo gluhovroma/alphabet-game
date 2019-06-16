@@ -1,30 +1,34 @@
 import {Injectable, IterableDiffers} from '@angular/core';
-
+import { VacabularyStorageService, StorageKeys } from './vacabularyStorageService';
 export enum Laguages {
     ru = 'ru',
     eng = 'eng'
 }
 
-export const alphabets = {
-    [Laguages.ru]: 'abcdefghijklmnopqrstuvwxyz'.split(''),
-    [Laguages.eng]: 'abcdefghijklmnopqrstuvwxyz'.split('')
+export const alphabets: VacabularyRecords = {
+  [Laguages.ru]: 'abcdefghijklmnopqrstuvwxyz'.split(''),
+  [Laguages.eng]: 'abcdefghijklmnopqrstuvwxyz'.split('')
 }
 
 
-export const vocabularies = {
-    [Laguages.ru]: ["мама","папа"],
-    [Laguages.eng]: ['mother', "father", "mom", "om", "main"]
-}
+export const vocabularies: VacabularyRecords = {
+  [Laguages.ru]: ["мама","папа"],
+  [Laguages.eng]: ['mother', "father", "mom", "om", "main"]
+};
+
+export interface VacabularyRecords extends Record<Laguages, string[]> {}
 
 const defaultLanguage = Laguages.eng;
 
 @Injectable()
 export class VacabularyService {
     public language: Laguages;
-    public alphabets = alphabets;
-    public vocabularies = vocabularies;
-    constructor() {
+    public alphabets: VacabularyRecords;
+    public vocabularies: VacabularyRecords;
+    constructor(private vacabularyStorageService: VacabularyStorageService) {
         this.language = defaultLanguage;
+        this.alphabets = this.vacabularyStorageService.get<VacabularyRecords>(StorageKeys.alphabets);
+        this.vocabularies = this.vacabularyStorageService.get<VacabularyRecords>(StorageKeys.vacabularies);
     }
 
     getAlphabet(): string[] {

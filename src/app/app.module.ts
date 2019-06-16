@@ -7,6 +7,8 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { ChallengePageComponent } from './challenge-page/challenge-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './material-module';
+import { StorageServiceModule } from 'ngx-webstorage-service';
+import { VacabularyStorageService } from './services/vacabularyStorageService';
 import { ChallengeService } from './services/challengeService';
 import { VacabularyService } from './services/vacabularyService';
 @NgModule({
@@ -20,9 +22,11 @@ import { VacabularyService } from './services/vacabularyService';
     AppRoutingModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    StorageServiceModule,
   ],
   providers: [
+    VacabularyStorageService,
     VacabularyService,
     ChallengeService
   ],
