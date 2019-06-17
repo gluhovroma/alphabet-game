@@ -26,9 +26,12 @@ export class ChallengePageComponent implements OnInit {
 
     this.alphabet = [...this.vacabularyService.getAlphabet()];
 
-    this.route.params.subscribe((params: Params) =>
-      this.challengeService.newChallenge(params.letter)
-    );
+    this.route.params.subscribe((params: Params) =>  {
+      if (this.alphabet.indexOf(params.letter) === -1) {
+        return this.router.navigateByUrl('');
+      }
+      this.challengeService.newChallenge(params.letter);
+    });
 
     this.challengeService.word.subscribe(word => {
       this.word = word && word.split("");
