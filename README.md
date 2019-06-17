@@ -22,6 +22,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Optimization
+## Optimization for screen sizes
 
 This app use flexLayout library. It optimize for sm, md and lg screen resolution.
