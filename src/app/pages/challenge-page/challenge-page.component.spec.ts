@@ -7,14 +7,17 @@ import { RouterTestingModule } from '@angular/router/testing';
 import {DemoMaterialModule} from '../../material-module';
 import { VacabularyStorageService } from '../../services/vacabularyService/vacabularyService';
 import { StorageServiceModule } from 'ngx-webstorage-service';
+import { LetterPresenterComponent } from '../../components/letter-presenter/letter-presenter.component';
+import { WordChallengeComponent } from '../../components/word-challenge/word-challenge.component';
+import { AlphabetComponent } from '../../components/alphabet/alphabet.component';
 describe('ChallengePageComponent', () => {
   let component: ChallengePageComponent;
   let fixture: ComponentFixture<ChallengePageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChallengePageComponent ],
-      imports:[RouterTestingModule, FlexLayoutModule, DemoMaterialModule, StorageServiceModule],
+      declarations: [ ChallengePageComponent, AlphabetComponent, LetterPresenterComponent, WordChallengeComponent ],
+      imports: [ RouterTestingModule, FlexLayoutModule, DemoMaterialModule, StorageServiceModule ],
       providers: [
         VacabularyService,
         ChallengeService,

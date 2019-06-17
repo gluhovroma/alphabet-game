@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {DemoMaterialModule} from '../../material-module';
 import { LetterPresenterComponent } from './letter-presenter.component';
 
 describe('LetterPresenterComponent', () => {
@@ -8,7 +9,8 @@ describe('LetterPresenterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LetterPresenterComponent ]
+      declarations: [ LetterPresenterComponent ],
+      imports: [FlexLayoutModule, DemoMaterialModule]
     })
     .compileComponents();
   }));

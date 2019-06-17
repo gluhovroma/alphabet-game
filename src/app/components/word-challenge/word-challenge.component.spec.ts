@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {DemoMaterialModule} from '../../material-module';
 import { WordChallengeComponent } from './word-challenge.component';
 
 describe('WordChallengeComponent', () => {
@@ -8,7 +9,8 @@ describe('WordChallengeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WordChallengeComponent ]
+      declarations: [ WordChallengeComponent ],
+      imports:[FlexLayoutModule, DemoMaterialModule]
     })
     .compileComponents();
   }));
