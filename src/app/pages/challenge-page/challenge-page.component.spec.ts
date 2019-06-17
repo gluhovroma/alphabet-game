@@ -10,13 +10,14 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import { LetterPresenterComponent } from '../../components/letter-presenter/letter-presenter.component';
 import { WordChallengeComponent } from '../../components/word-challenge/word-challenge.component';
 import { AlphabetComponent } from '../../components/alphabet/alphabet.component';
+import { AppContainerComponent } from '../../templates/app-container/app-container.component';
 describe('ChallengePageComponent', () => {
   let component: ChallengePageComponent;
   let fixture: ComponentFixture<ChallengePageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChallengePageComponent, AlphabetComponent, LetterPresenterComponent, WordChallengeComponent ],
+      declarations: [ ChallengePageComponent, AlphabetComponent, LetterPresenterComponent, WordChallengeComponent, AppContainerComponent ],
       imports: [ RouterTestingModule, FlexLayoutModule, DemoMaterialModule, StorageServiceModule ],
       providers: [
         VacabularyService,

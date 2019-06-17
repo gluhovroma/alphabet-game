@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChallengeService, ChallengeStatus } from '../../services/challengeService/challengeService';
 import { VacabularyService } from '../../services/vacabularyService/vacabularyService';
 import { Router, ActivatedRoute, Params  } from '@angular/router';
+
 @Component({
   selector: 'app-challenge-page',
   templateUrl: './challenge-page.component.html',

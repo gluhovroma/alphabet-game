@@ -1,23 +1,8 @@
-<div
-  fxLayout="row"
-  [fxFlex.lg]="50"
-  [fxFlex.md]="50"
-  [fxFlex.xs]="100"
-  [fxFlexOffset.lg]="25"
-  [fxFlexOffset.md]="25"
-  [fxFlexOffset.xs]="0"
-  fxLayoutAlign="center center"
-  class="main"
->
-  <div
-    fxLayout="column"
-    fxLayoutGap="20px"
-    fxFill
-  >
-    <app-letter-presenter
+<app-container> 
+  <app-letter-presenter
       [letter]="letter"
       [language]="vacabularyService.language"
-    >
+  >
   </app-letter-presenter>
   <app-word-challenge
     [challengeStatus]="challengeStatus"
@@ -27,8 +12,8 @@
   >
   </app-word-challenge>
   <app-alphabet
-  [alphabet]="alphabet"
-  (onClickLetter)="newChallenge($event)">
+    [alphabet]="alphabet"
+    (onClickLetter)="newChallenge($event)">
   </app-alphabet>
-  </div>
-</div>
+</app-container>
+

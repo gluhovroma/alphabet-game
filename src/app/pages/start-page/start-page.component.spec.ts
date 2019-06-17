@@ -6,14 +6,16 @@ import { ChallengeService } from '../../services/challengeService/challengeServi
 import { RouterTestingModule } from '@angular/router/testing';
 import { VacabularyStorageService } from '../../services/vacabularyService/vacabularyService';
 import { StorageServiceModule } from 'ngx-webstorage-service';
-import {DemoMaterialModule} from '../../material-module';
+import { DemoMaterialModule } from '../../material-module';
+import { AppContainerComponent } from '../../templates/app-container/app-container.component';
+
 describe('StartPageComponent', () => {
   let component: StartPageComponent;
   let fixture: ComponentFixture<StartPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StartPageComponent ],
+      declarations: [ StartPageComponent, AppContainerComponent ],
       imports:[RouterTestingModule, FlexLayoutModule, DemoMaterialModule, StorageServiceModule],
       providers: [
         VacabularyService,

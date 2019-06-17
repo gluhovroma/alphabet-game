@@ -14,6 +14,7 @@ import { VacabularyService } from './services/vacabularyService/vacabularyServic
 import { LetterPresenterComponent } from './components/letter-presenter/letter-presenter.component';
 import { WordChallengeComponent } from './components/word-challenge/word-challenge.component';
 import { AlphabetComponent } from './components/alphabet/alphabet.component';
+import { AppContainerComponent } from './templates/app-container/app-container.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { AlphabetComponent } from './components/alphabet/alphabet.component';
     ChallengePageComponent,
     LetterPresenterComponent,
     WordChallengeComponent,
-    AlphabetComponent
+    AlphabetComponent,
+    AppContainerComponent
   ],
   imports: [
     BrowserModule,

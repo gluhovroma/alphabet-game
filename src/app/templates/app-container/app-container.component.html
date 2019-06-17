@@ -1,0 +1,19 @@
+<div
+  fxLayout="row"
+  [fxFlex.lg]="50"
+  [fxFlex.md]="50"
+  [fxFlex.xs]="100"
+  [fxFlexOffset.lg]="25"
+  [fxFlexOffset.md]="25"
+  [fxFlexOffset.xs]="0"
+  fxLayoutAlign="center center"
+  class="appCointainer"
+>
+  <div
+    fxLayout="column"
+    fxLayoutGap="20px"
+    fxFill
+  >
+    <ng-content></ng-content>
+  </div>
+</div>
